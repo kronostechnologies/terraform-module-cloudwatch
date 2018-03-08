@@ -1,0 +1,236 @@
+{
+  "type":"metric",
+  "width":5,
+  "height":5,
+  "properties": {
+    "metrics": [
+      [
+        "AWS/NATGateway",
+        "BytesInFromDestination",
+        "NatGatewayId",
+        "${nat_gateway_id}",
+        {
+          "label": "Internet ⇩ (bps)",
+          "color": "#001F3F"
+        }
+      ],
+      [
+        "AWS/NATGateway",
+        "BytesOutToDestination",
+        "NatGatewayId",
+        "${nat_gateway_id}",
+        {
+          "label": "Internet ⇧ (bps)",
+          "color": "#3D9970"
+        }
+      ],
+      [
+        "AWS/NATGateway",
+        "BytesOutToSource",
+        "NatGatewayId",
+        "${nat_gateway_id}",
+        {
+          "label": "VPC ⇩ (bps)",
+          "color": "#FF851B"
+        }
+      ],
+      [
+        "AWS/NATGateway",
+        "BytesInFromSource",
+        "NatGatewayId",
+        "${nat_gateway_id}",
+        {
+          "label": "VPC ⇧ (bps)",
+          "color": "#B10DC9"
+        }
+      ],
+      [
+        "AWS/NATGateway",
+        "PacketsInFromDestination",
+        "NatGatewayId",
+        "${nat_gateway_id}",
+        {
+          "label": "Internet ⇩ (pps)",
+          "color": "#0074D9",
+          "yAxis":"right"
+        }
+      ],
+      [
+        "AWS/NATGateway",
+        "PacketsOutToDestination",
+        "NatGatewayId",
+        "${nat_gateway_id}",
+        {
+          "label": "Internet ⇧ (pps)",
+          "color": "#2ECC40",
+          "yAxis":"right"
+        }
+      ],
+      [
+        "AWS/NATGateway",
+        "PacketsOutToSource",
+        "NatGatewayId",
+        "${nat_gateway_id}",
+        {
+          "label": "VPC ⇩ (pps)",
+          "color": "#FF4136",
+          "yAxis":"right"
+        }
+      ],
+      [
+        "AWS/NATGateway",
+        "PacketsInFromSource",
+        "NatGatewayId",
+        "${nat_gateway_id}",
+        {
+          "label": "VPC ⇧ (pps)",
+          "color": "#111111",
+          "yAxis":"right"
+        }
+      ]
+    ],
+    "period":60,
+    "stat":"Average",
+    "region":"${nat_region}",
+    "title":"${nat_subnet_name}@${nat_public_ip} - Bandwidth/Packets"
+  }
+},
+{
+  "type":"metric",
+  "width":7,
+  "height":6,
+  "properties": {
+    "metrics": [
+      [
+        "AWS/NATGateway",
+        "ActiveConnectionCount",
+        "NatGatewayId",
+        "${nat_gateway_id}",
+        {
+          "label": "Active",
+          "color": "#7FDBFF"
+        }
+      ],
+      [
+        "AWS/NATGateway",
+        "ConnectionAttemptCount",
+        "NatGatewayId",
+        "${nat_gateway_id}",
+        {
+          "label": "Attempts",
+          "color": "#01FF70"
+        }
+      ],
+      [
+        "AWS/NATGateway",
+        "ConnectionEstablishedCount",
+        "NatGatewayId",
+        "${nat_gateway_id}",
+        {
+          "label": "Established",
+          "color": "#85144b"
+        }
+      ],
+      [
+        "AWS/NATGateway",
+        "IdleTimeoutCount",
+        "NatGatewayId",
+        "${nat_gateway_id}",
+        {
+          "label": "IdleTimeout",
+          "color": "#AAAAAA"
+        }
+      ],
+      [
+        "AWS/NATGateway",
+        "PacketsDropCount",
+        "NatGatewayId",
+        "${nat_gateway_id}",
+        {
+          "label": "Dropped Packets",
+          "color": "#39CCCC",
+          "yAxis":"right"
+        }
+      ],
+      [
+        "AWS/NATGateway",
+        "ErrorPortAllocation",
+        "NatGatewayId",
+        "${nat_gateway_id}",
+        {
+          "label": "Port Allocation Errors",
+          "color": "#FFDC00",
+          "yAxis":"right"
+        }
+      ]
+    ],
+    "period":60,
+    "stat":"Average",
+    "region":"${nat_region}",
+    "title": "${nat_subnet_name}@${nat_public_ip} - Connections"
+  }
+},
+{
+  "type":"metric",
+  "width":9,
+  "height":6,
+  "properties": {
+    "metrics": [
+      [
+        "AWS/NATGateway",
+        "BytesInFromDestination",
+        "NatGatewayId",
+        "${nat_gateway_id}",
+        {
+          "label": "Download",
+          "color": "#001F3F"
+        }
+      ],
+      [
+        "AWS/NATGateway",
+        "BytesOutToDestination",
+        "NatGatewayId",
+        "${nat_gateway_id}",
+        {
+          "label": "Upload",
+          "color": "#3D9970"
+        }
+      ],
+      [
+        "AWS/NATGateway",
+        "ActiveConnectionCount",
+        "NatGatewayId",
+        "${nat_gateway_id}",
+        {
+          "label": "Active Connections",
+          "color": "#7FDBFF"
+        }
+      ],
+      [
+        "AWS/NATGateway",
+        "PacketsInFromDestination",
+        "NatGatewayId",
+        "${nat_gateway_id}",
+        {
+          "label": "Packets DL",
+          "color": "#0074D9"
+        }
+      ],
+      [
+        "AWS/NATGateway",
+        "PacketsOutToDestination",
+        "NatGatewayId",
+        "${nat_gateway_id}",
+        {
+          "label": "Packets UL",
+          "color": "#2ECC40"
+        }
+      ]
+    ],
+    "period":60,
+    "stat":"Average",
+    "region":"${nat_region}",
+    "view": "singleValue",
+    "title": "${nat_subnet_name}@${nat_public_ip}"
+  }
+}

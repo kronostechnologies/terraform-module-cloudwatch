@@ -1,0 +1,8 @@
+{
+  "type": "text",
+  "width": 24,
+  "height": 1,
+  "properties": {
+    "markdown": "${header}"
+  }
+}

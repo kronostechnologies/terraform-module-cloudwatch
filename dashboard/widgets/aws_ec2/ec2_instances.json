@@ -1,0 +1,144 @@
+{
+  "type":"metric",
+  "width": ${width},
+  "height": ${height},
+  "properties": {
+    "metrics": [
+      [
+        "AWS/EC2",
+        "CPUUtilization",
+        "InstanceId",
+        "${instance_id}",
+        { "label":"CPU (%)"}
+      ],
+      [
+        "System/Linux",
+        "MemoryUtilization",
+        "InstanceId",
+        "${instance_id}",
+        { "label":"MEM (%)"}
+      ],
+      [
+        "System/Linux",
+        "DiskSpaceUtilization",
+        "MountPath",
+        "/",
+        "InstanceId",
+        "${instance_id}",
+        "Filesystem",
+        "/dev/xvda2",
+        { "label":"/ (%)"}
+      ],
+      [
+        "AWS/EC2",
+        "CPUCreditUsage",
+        "InstanceId",
+        "${instance_id}",
+        {
+          "label":"CPUCreditUsage",
+          "yAxis": "right",
+          "period": 300
+        }
+      ],
+      [
+        "AWS/EC2",
+        "CPUCreditBalance",
+        "InstanceId",
+        "${instance_id}",
+        {
+          "label":"CPUCreditBalance",
+          "yAxis": "right",
+          "period": 300
+        }
+      ]
+    ],
+    "period":60,
+    "stat":"Average",
+    "region":"${instance_region}",
+    "title":"${element(split(".",instance_name),0)} - CPU/MEM",
+    "yAxis":{ "left":{ "min":0, "max":100 } }
+  }
+},
+{
+  "type":"metric",
+  "width": ${width},
+  "height": ${height},
+  "properties": {
+    "metrics": [
+      [
+        "AWS/EBS",
+        "BurstBalance",
+        "VolumeId",
+        "${root_volume}",
+        { "label":"VolumeBurstBalance / (%)"}
+      ],
+      [
+        "AWS/EBS",
+        "VolumeReadOps",
+        "VolumeId",
+        "${root_volume}",
+        { "label":"VolumeReadOps /", "yAxis": "right"}
+      ],
+      [
+        "AWS/EBS",
+        "VolumeWriteOps",
+        "VolumeId",
+        "${root_volume}",
+        { "label":"VolumeWriteOps /", "yAxis": "right"}
+      ],
+      [
+        "AWS/EBS",
+        "VolumeQueueLength",
+        "VolumeId",
+        "${root_volume}",
+        { "label":"VolumeQueueLength /", "yAxis": "right"}
+      ]
+    ],
+    "period":60,
+    "stat":"Average",
+    "region":"${instance_region}",
+    "title":"${element(split(".",instance_name),0)} - Volume /",
+    "yAxis":{ "left":{ "min":0, "max":100 } }
+  }
+},
+{
+  "type":"metric",
+  "width": ${width},
+  "height": ${height},
+  "properties": {
+    "metrics": [
+      [
+        "AWS/EC2",
+        "NetworkIn",
+        "InstanceId",
+        "${instance_id}",
+        { "label":"NetworkIn (bytes)", "yAxis": "left"}
+      ],
+      [
+        "AWS/EC2",
+        "NetworkOut",
+        "InstanceId",
+        "${instance_id}",
+        { "label":"NetworkOut (bytes)", "yAxis": "left"}
+      ],
+      [
+        "AWS/EC2",
+        "NetworkPacketsIn",
+        "InstanceId",
+        "${instance_id}",
+        { "label":"NetworkIn (packets)", "yAxis": "right"}
+      ],
+      [
+        "AWS/EC2",
+        "NetworkPacketsOut",
+        "InstanceId",
+        "${instance_id}",
+        { "label":"NetworkOut (packets)", "yAxis": "right"}
+      ]
+    ],
+    "period":60,
+    "stat":"Average",
+    "region":"${instance_region}",
+    "title":"${element(split(".",instance_name),0)} - NET"
+  }
+}

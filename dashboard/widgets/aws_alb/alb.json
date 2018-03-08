@@ -1,0 +1,175 @@
+{
+  "type":"metric",
+  "width":6,
+  "height":6,
+  "properties": {
+    "metrics": [
+      [
+        "AWS/ApplicationELB",
+        "ProcessedBytes",
+        "LoadBalancer",
+        "${lb_arn_suffix}"
+      ],
+      [
+        "AWS/ApplicationELB",
+        "TargetResponseTime",
+        "LoadBalancer",
+        "${lb_arn_suffix}",
+        {
+          "yAxis": "right"
+        }
+      ]
+    ],
+    "period": 60,
+    "stat":"Sum",
+    "region":"${region}",
+    "title":"${lb_name} - Performance"
+  }
+},
+{
+  "type":"metric",
+  "width":12,
+  "height":6,
+  "properties": {
+    "metrics": [
+      [
+        "AWS/ApplicationELB",
+        "NewConnectionCount",
+        "LoadBalancer",
+        "${lb_arn_suffix}"
+      ],
+      [
+        "AWS/ApplicationELB",
+        "ActiveConnectionCount",
+        "LoadBalancer",
+        "${lb_arn_suffix}"
+      ],
+      [
+        "AWS/ApplicationELB",
+        "RequestCount",
+        "LoadBalancer",
+        "${lb_arn_suffix}"
+      ],
+      [
+        "AWS/ApplicationELB",
+        "ClientTLSNegotiationErrorCount",
+        "LoadBalancer",
+        "${lb_arn_suffix}"
+      ],
+      [
+        "AWS/ApplicationELB",
+        "HTTPCode_ELB_2XX_Count",
+        "LoadBalancer",
+        "${lb_arn_suffix}",
+        {
+          "yAxis": "right"
+        }
+      ],
+      [
+        "AWS/ApplicationELB",
+        "HTTPCode_ELB_3XX_Count",
+        "LoadBalancer",
+        "${lb_arn_suffix}",
+        {
+          "yAxis": "right"
+        }
+      ],
+      [
+        "AWS/ApplicationELB",
+        "HTTPCode_ELB_4XX_Count",
+        "LoadBalancer",
+        "${lb_arn_suffix}",
+        {
+          "yAxis": "right"
+        }
+      ],
+      [
+        "AWS/ApplicationELB",
+        "HTTPCode_ELB_5XX_Count",
+        "LoadBalancer",
+        "${lb_arn_suffix}",
+        {
+          "yAxis": "right"
+        }
+      ],
+      [
+        "AWS/ApplicationELB",
+        "HTTPCode_Target_2XX_Count",
+        "LoadBalancer",
+        "${lb_arn_suffix}",
+        {
+          "yAxis": "right"
+        }
+      ],
+      [
+        "AWS/ApplicationELB",
+        "HTTPCode_Target_3XX_Count",
+        "LoadBalancer",
+        "${lb_arn_suffix}",
+        {
+          "yAxis": "right"
+        }
+      ],
+      [
+        "AWS/ApplicationELB",
+        "HTTPCode_Target_4XX_Count",
+        "LoadBalancer",
+        "${lb_arn_suffix}",
+        {
+          "yAxis": "right"
+        }
+      ],
+      [
+        "AWS/ApplicationELB",
+        "HTTPCode_Target_5XX_Count",
+        "LoadBalancer",
+        "${lb_arn_suffix}",
+        {
+          "yAxis":"right"
+        }
+      ]
+    ],
+    "period":60,
+    "stat":"Sum",
+    "region":"${region}",
+    "title":"${lb_name} - Connections"
+  }
+},
+{
+  "type":"metric",
+  "width":6,
+  "height":6,
+  "properties": {
+    "metrics": [
+      [
+        "AWS/ApplicationELB",
+        "ConsumedLCUs",
+        "LoadBalancer",
+        "${lb_arn_suffix}"
+      ],
+      [
+        "AWS/ApplicationELB",
+        "ProcessedBytes",
+        "LoadBalancer",
+        "${lb_arn_suffix}"
+      ],
+      [
+        "AWS/ApplicationELB",
+        "ActiveConnectionCount",
+        "LoadBalancer",
+        "${lb_arn_suffix}"
+      ],
+      [
+        "AWS/ApplicationELB",
+        "TargetResponseTime",
+        "LoadBalancer",
+        "${lb_arn_suffix}"
+      ]
+    ],
+    "period": 60,
+    "stat":"Sum",
+    "view": "singleValue",
+    "region":"${region}",
+    "title":"${lb_name} - Overview"
+  }
+}

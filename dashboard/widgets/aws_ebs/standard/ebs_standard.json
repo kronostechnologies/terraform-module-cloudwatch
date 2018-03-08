@@ -1,0 +1,53 @@
+{
+  "type":"metric",
+  "width": ${width},
+  "height": ${height},
+  "properties": {
+    "metrics": [
+      [
+        "System/Linux",
+        "DiskSpaceUtilization",
+        "MountPath",
+        "${volume_mountpath}",
+        "InstanceId",
+        "${instance_id}",
+        "Filesystem",
+        "${volume_filesystem}",
+        { "label":"Space Utilization (%)"}
+      ],
+      [
+        "AWS/EBS",
+        "BurstBalance",
+        "VolumeId",
+        "${volume_id}",
+        { "label":"Burst Balance (%)"}
+      ],
+      [
+        "AWS/EBS",
+        "VolumeReadOps",
+        "VolumeId",
+        "${volume_id}",
+        { "label":"Read Ops", "yAxis": "right"}
+      ],
+      [
+        "AWS/EBS",
+        "VolumeWriteOps",
+        "VolumeId",
+        "${volume_id}",
+        { "label":"Write Ops", "yAxis": "right"}
+      ],
+      [
+        "AWS/EBS",
+        "VolumeQueueLength",
+        "VolumeId",
+        "${volume_id}",
+        { "label":"Queue Length", "yAxis": "right"}
+      ]
+    ],
+    "period":300,
+    "stat":"Average",
+    "region":"${volume_region}",
+    "title":"EBS:${volume_name_tag} ⇢ ${volume_mountpath}",
+    "yAxis":{ "left":{ "min":0, "max":100 } }
+  }
+}
