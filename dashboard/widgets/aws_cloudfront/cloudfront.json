@@ -53,7 +53,7 @@
     "stat":"Average",
     "stacked": true,
     "region":"us-east-1",
-    "title":"CF:${domain} - errors",
+    "title":"CF: ${domain} - errors",
     "view":"timeSeries"
   }
 },
@@ -101,7 +101,7 @@
     "stat":"Sum",
     "region":"us-east-1",
     "stacked": true,
-    "title":"CF:${domain} - throughput",
+    "title":"CF: ${domain} - throughput",
     "view":"timeSeries"
   }
 }
