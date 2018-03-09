@@ -1,0 +1,107 @@
+{
+  "type":"metric",
+  "width":${width},
+  "height":${height},
+  "properties": {
+    "metrics": [
+      [
+        "AWS/CloudFront",
+        "Requests",
+        "Region",
+        "Global",
+        "DistributionId",
+        "${distribution_id}",
+        {
+          "stat": "Sum"
+        }
+      ],
+      [
+        ".",
+        "4xxErrorRate",
+        ".",
+        ".",
+        ".",
+        ".",
+        {
+          "yAxis": "right"
+        }
+      ],
+      [
+        ".",
+        "5xxErrorRate",
+        ".",
+        ".",
+        ".",
+        ".",
+        {
+          "yAxis": "right"
+        }
+      ],
+      [
+        ".",
+        "TotalErrorRate",
+        ".",
+        ".",
+        ".",
+        ".",
+        {
+          "yAxis": "right"
+        }
+      ]
+    ],
+    "period":60,
+    "stat":"Average",
+    "stacked": true,
+    "region":"us-east-1",
+    "title":"CF:${domain} - errors",
+    "view":"timeSeries"
+  }
+},
+{
+  "type":"metric",
+  "width":${width},
+  "height":${height},
+  "properties": {
+    "metrics": [
+      [
+        "AWS/CloudFront",
+        "Requests",
+        "Region",
+        "Global",
+        "DistributionId",
+        "${distribution_id}",
+        {
+          "stat": "Sum"
+        }
+      ],
+      [
+        ".",
+        "BytesDownloaded",
+        ".",
+        ".",
+        ".",
+        ".",
+        {
+          "yAxis": "right"
+        }
+      ],
+      [
+        ".",
+        "BytesUploaded",
+        ".",
+        ".",
+        ".",
+        ".",
+        {
+          "yAxis": "right"
+        }
+      ]
+    ],
+    "period": 60,
+    "stat":"Sum",
+    "region":"us-east-1",
+    "stacked": true,
+    "title":"CF:${domain} - throughput",
+    "view":"timeSeries"
+  }
+}
