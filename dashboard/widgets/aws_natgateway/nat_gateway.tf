@@ -1,17 +1,22 @@
 variable "vpc_id" {}
 
-variable "tags" {
+variable "subnet_tags" {
   type = "map"
+}
+variable "nat_gateway_filter" {
+  type = "list"
+  description = "A list of object like [{ name = 'tag:Name', values = ['value']}]"
 }
 
 data "aws_subnet_ids" "selected" {
   vpc_id = "${var.vpc_id}"
-  tags   = "${var.tags}"
+  tags   = "${var.subnet_tags}"
 }
 
 data "aws_nat_gateway" "selected" {
   count     = "${length(data.aws_subnet_ids.selected.ids)}"
   subnet_id = "${element(data.aws_subnet_ids.selected.ids, count.index)}"
+  filter    = "${var.nat_gateway_filter}"
 }
 
 data "aws_subnet" "selected" {
