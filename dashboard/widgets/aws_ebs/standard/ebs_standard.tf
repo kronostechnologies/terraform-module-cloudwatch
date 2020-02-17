@@ -14,12 +14,12 @@ variable "height" {
 data "aws_ebs_volume" "selected" {
   count = "${length(var.volumes)}"
 
-  filter = {
+  filter {
     name   = "attachment.instance-id"
     values = ["${lookup(var.volumes[count.index], "instance-id")}"]
   }
 
-  filter = {
+  filter {
     name   = "tag:Name"
     values = ["${lookup(var.volumes[count.index], "name-tag")}"]
   }
