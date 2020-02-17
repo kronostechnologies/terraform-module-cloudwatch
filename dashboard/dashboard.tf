@@ -20,7 +20,7 @@ data "template_file" "dashboard_body" {
 }
 TPL
 
-  vars {
+  vars = {
     widgets = "${indent(2,join(",", data.template_file.widget_list.*.rendered))}"
   }
 }
@@ -32,7 +32,7 @@ data "template_file" "widget_list" {
 $${widget}
 TPL
 
-  vars {
+  vars = {
     widget = "${element(var.widgets, count.index)}"
   }
 }

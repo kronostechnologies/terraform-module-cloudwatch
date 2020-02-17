@@ -24,7 +24,7 @@ data "template_file" "tpl" {
   count    = "${length(data.aws_elasticache_cluster.selected.*.id)}"
   template = "${file("${path.module}/redis.json")}"
 
-  vars {
+  vars = {
     width      = "${var.width}"
     height     = "${var.height}"
     region     = "${element(data.aws_availability_zone.selected.*.region, count.index)}"

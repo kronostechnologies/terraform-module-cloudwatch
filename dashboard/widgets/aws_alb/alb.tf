@@ -13,7 +13,7 @@ data "template_file" "tpl" {
   count    = "${length(var.lb_arns)}"
   template = "${file("${path.module}/alb.json")}"
 
-  vars {
+  vars = {
     region        = "${data.aws_region.current.name}"
     lb_arn_suffix = "${element(data.aws_lb.selected.*.arn_suffix, count.index)}"
     lb_name       = "${element(data.aws_lb.selected.*.tags.Name, count.index)}"

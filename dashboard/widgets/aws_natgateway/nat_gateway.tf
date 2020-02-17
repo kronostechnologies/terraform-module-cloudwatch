@@ -33,7 +33,7 @@ data "template_file" "tpl" {
   count    = "${length(data.aws_nat_gateway.selected.*.id)}"
   template = "${file("${path.module}/nat_gateway.json")}"
 
-  vars {
+  vars = {
     nat_region      = "${element(data.aws_availability_zone.selected.*.region, count.index)}"
     nat_gateway_id  = "${element(data.aws_nat_gateway.selected.*.id, count.index)}"
     nat_public_ip   = "${element(data.aws_nat_gateway.selected.*.public_ip, count.index)}"

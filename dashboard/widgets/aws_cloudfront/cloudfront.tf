@@ -17,7 +17,7 @@ variable "height" {
 data "template_file" "tpl" {
   template = "${file("${path.module}/cloudfront.json")}"
 
-  vars {
+  vars = {
     width           = "${var.width}"
     height          = "${var.height}"
     distribution_id = "${var.distribution_id}"

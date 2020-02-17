@@ -32,7 +32,7 @@ data "template_file" "tpl" {
   count    = "${length(data.aws_instance.selected.*.id)}"
   template = "${file("${path.module}/ec2_instances.json")}"
 
-  vars {
+  vars = {
     width           = "${var.width}"
     height          = "${var.height}"
     instance_region = "${element(data.aws_availability_zone.selected.*.region, count.index)}"

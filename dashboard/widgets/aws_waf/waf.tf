@@ -13,7 +13,7 @@ variable "height" {
 data "template_file" "tpl" {
   template = "${file("${path.module}/waf.json")}"
 
-  vars {
+  vars = {
     width   = "${var.width}"
     height  = "${var.height}"
     web_acl = "${var.web_acl}"

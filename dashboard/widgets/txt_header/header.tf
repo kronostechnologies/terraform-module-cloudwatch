@@ -6,7 +6,7 @@ variable "name" {
 data "template_file" "header_widget" {
   template = "${file("${path.module}/header.json")}"
 
-  vars {
+  vars = {
     header = "${var.name}"
   }
 }

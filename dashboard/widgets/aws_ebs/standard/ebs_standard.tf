@@ -43,7 +43,7 @@ data "template_file" "tpl" {
   count    = "${length(var.volumes)}"
   template = "${file("${path.module}/ebs_standard.json")}"
 
-  vars {
+  vars = {
     width             = "${var.width}"
     height            = "${var.height}"
     instance_id       = "${element(data.aws_instance.selected.*.id, count.index)}"
