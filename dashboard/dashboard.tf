@@ -1,14 +1,14 @@
 variable "name" {
-  type = "string"
+  type = string
 }
 
 variable "widgets" {
-  type = "list"
+  type = list
 }
 
 resource "aws_cloudwatch_dashboard" "main" {
-  dashboard_name = "${var.name}"
-  dashboard_body = "${indent(2, data.template_file.dashboard_body.rendered)}"
+  dashboard_name = var.name
+  dashboard_body = indent(2, data.template_file.dashboard_body.rendered)
 }
 
 data "template_file" "dashboard_body" {
@@ -21,19 +21,19 @@ data "template_file" "dashboard_body" {
 TPL
 
   vars = {
-    widgets = "${indent(2,join(",", data.template_file.widget_list.*.rendered))}"
+    widgets = indent(2,join(",", data.template_file.widget_list.*.rendered))
   }
 }
 
 data "template_file" "widget_list" {
-  count = "${length(var.widgets)}"
+  count = length(var.widgets)
 
   template = <<TPL
 $${widget}
 TPL
 
   vars = {
-    widget = "${element(var.widgets, count.index)}"
+    widget = element(var.widgets, count.index)
   }
 }
 
